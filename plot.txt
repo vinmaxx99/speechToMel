@@ -1,0 +1,22 @@
+N = 8
+node2vec =[0.96875,0.860714285714286,0.506385696040868,0.728901220595573,0.89320472338769
+,1,1,0.5]
+sdne =[0.694444444444444,0.60151677026677,0.654533844189017,0.710744405096565,0.743356834926539
+,0.8203125,0.4375,0.3671875]
+hope=[0.881944444444444,0.824436905686906,0.508620689655172,0.545008701154881,0.585068918782531
+,1,1,0.484375]
+ind = np.arange(N) 
+width = 0.2       
+plt.bar(ind, node2vec, width, label='node2vec')
+plt.bar(ind + width, sdne, width,
+    label='sdne')
+plt.bar(ind + 2*width, sdne, width,
+    label='hope')
+
+plt.ylabel('Recall')
+plt.title('Recall on different dataset')
+plt.ylim([0.0,1.4])
+plt.xticks(ind + width / 2, ('Karate Club', 'American Football', 'Word', 'Polbooks','Polblogs', 'LFR (meu=0.1)', 'LFR (meu=0.3)', 'LFR (meu=0.5)'),rotation=45)
+plt.legend(loc='best')
+plt.savefig('recall_final.png')
+plt.show()
